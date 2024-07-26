@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://4n5uxs3wifc"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/gui.gd" id="1_n6c1n"]
+[ext_resource type="Texture2D" uid="uid://bjfx5xhq5uju4" path="res://Art Assets/PlayerSprite/Player Health/HeartSpriteSheet.png" id="2_q81pc"]
+[ext_resource type="Texture2D" uid="uid://c158ve4f6esgr" path="res://Art Assets/Collectable/pickup 2-Sheet-16x16.png" id="3_xxlgj"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_n6c1n")
+
+[node name="Health" type="Sprite2D" parent="."]
+position = Vector2(154.795, 165.267)
+scale = Vector2(6.58964, 6.58964)
+texture = ExtResource("2_q81pc")
+hframes = 5
+frame = 4
+
+[node name="Collectable" type="Sprite2D" parent="."]
+position = Vector2(152.223, 285.708)
+scale = Vector2(5.62154, 5.62154)
+texture = ExtResource("3_xxlgj")
+hframes = 5
+frame = 3
+
+[node name="Collectable_display" type="Label" parent="."]
+offset_left = 231.761
+offset_top = 276.208
+offset_right = 271.761
+offset_bottom = 333.208
+theme_override_font_sizes/font_size = 41
+text = "0"

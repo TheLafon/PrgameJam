@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg6ms2qdnlr4l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hsm0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kyfg"]
+size = Vector2(8.46354, 14.2544)
+
+[sub_resource type="Animation" id="Animation_y7c8h"]
+resource_name = "Activated"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(2, 2, 2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_31cri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2, 2, 2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82o3s"]
+_data = {
+"Activated": SubResource("Animation_y7c8h"),
+"RESET": SubResource("Animation_31cri")
+}
+
+[node name="CheckPoint" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+position = Vector2(-0.0366015, 0.00807953)
+scale = Vector2(8.34304, 13.5973)
+texture = SubResource("PlaceholderTexture2D_hsm0k")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.0294647, -0.162988)
+shape = SubResource("RectangleShape2D_1kyfg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_82o3s")
+}

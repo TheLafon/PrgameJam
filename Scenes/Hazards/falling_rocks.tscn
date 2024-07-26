@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://qwywqtq3ej2w"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables/FallingRocks.gd" id="1_2yleo"]
+[ext_resource type="Texture2D" uid="uid://dvyhe28s2lnp2" path="res://Art Assets/RealHazards/Cystal 2.png" id="2_t2r58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3husp"]
+size = Vector2(43.1823, 67.0521)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dscp"]
+size = Vector2(50.4538, 726.359)
+
+[node name="FallingRocks" type="Node2D"]
+script = ExtResource("1_2yleo")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.670588, 0.65098, 1)
+position = Vector2(-0.0102558, 50.0178)
+rotation = 3.14159
+texture = ExtResource("2_t2r58")
+
+[node name="Hitbox" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-4.47768, 33.7175)
+shape = SubResource("RectangleShape2D_3husp")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(-3.63411, 363.247)
+shape = SubResource("RectangleShape2D_5dscp")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bkewi2k68ep1y"]
+
+[node name="Line2D" type="Line2D"]
+self_modulate = Color(2, 2, 2, 0.7)
+position = Vector2(3.5637, 58.7305)
+points = PackedVector2Array(30.7218, 82.1644, 701.059, 82.1644)
+closed = true
+width = 64.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
